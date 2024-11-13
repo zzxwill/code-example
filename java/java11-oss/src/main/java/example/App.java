@@ -26,7 +26,7 @@ public class App implements StreamRequestHandler {
         Credentials creds = context.getExecutionCredentials();
 
         // 创建OSSClient实例。
-        OSS ossClient = new OSSClientBuilder().build(endpoint, creds.getAccessKeyId(), creds.getAccessKeySecret(), creds.getSecurityToken());
+        OSS ossClient = new OSSClientBuilder().build(endpoint, creds.getAccessKeyId(), creds.getAccessKeySecret());
 
         // 填写Byte数组。
         byte[] content = "Hello FC".getBytes();
@@ -35,7 +35,7 @@ public class App implements StreamRequestHandler {
 
         // 关闭OSSClient
         ossClient.shutdown();
-    
+
         outputStream.write(new String("done").getBytes());
     }
 }
